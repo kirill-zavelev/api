@@ -31,11 +31,5 @@ public class UserTest extends BaseTest {
         User[] users = responseBody.as(User[].class);
 
         Assert.assertEquals(users.length, 10);
-
-//        Gson gson = new Gson();
-//        User user = new User();
-//        String json = gson.toJson(new User[].class);
-//        User read = gson.fromJson(json, User.class);
-//        Assert.assertEquals();
     }
 }
