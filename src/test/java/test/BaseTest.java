@@ -1,10 +1,10 @@
 package test;
 
-import webservice.PostClient;
+import webservice.UserClient;
 import io.restassured.RestAssured;
 import org.testng.annotations.BeforeTest;
 
-public class BaseTest extends PostClient {
+public class BaseTest {
 
     @BeforeTest
     public void initTest() {
