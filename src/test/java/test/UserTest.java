@@ -5,8 +5,8 @@ import io.restassured.response.ResponseBody;
 import model.User;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import verifier.ResponseHeaderVerifier;
-import verifier.StatusCodeVerifier;
+import validator.ResponseHeaderValidator;
+import validator.StatusCodeValidator;
 import webservice.UserClient;
 
 public class UserTest extends BaseTest {
@@ -15,21 +15,21 @@ public class UserTest extends BaseTest {
     public void verifyResponseStatusCode() {
         Response response = UserClient.getResponseStatusCode();
 
-        StatusCodeVerifier.assertStatusCode200(response);
+        StatusCodeValidator.assertSuccessStatusCode(response);
     }
 
     @Test
     public void verifyResponseHeader() {
         String contentTypeValue = UserClient.getContentTypeResponseHeader();
 
-        ResponseHeaderVerifier.assertJsonContentType(contentTypeValue);
+        ResponseHeaderValidator.assertJsonContentType(contentTypeValue);
     }
 
     @Test
     public void verifyResponseBody() {
-        ResponseBody<?> responseBody = UserClient.getResponseBody();
-        User[] users = responseBody.as(User[].class);
+        User[] users = UserClient.getResponseBody().as(User[].class);
+        int expectedLength = users.length;
 
-        Assert.assertEquals(users.length, 10);
+        Assert.assertEquals(expectedLength, 10);
     }
 }

@@ -1,9 +1,9 @@
-package verifier;
+package validator;
 
 import org.testng.Assert;
 import webservice.UserClient;
 
-public class ResponseHeaderVerifier {
+public class ResponseHeaderValidator {
 
     private static final String CONTENT_TYPE = "application/json; charset=utf-8";
 

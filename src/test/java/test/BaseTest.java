@@ -1,6 +1,5 @@
 package test;
 
-import webservice.UserClient;
 import io.restassured.RestAssured;
 import org.testng.annotations.BeforeTest;
 
