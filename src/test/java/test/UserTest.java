@@ -1,7 +1,6 @@
 package test;
 
 import io.restassured.response.Response;
-import io.restassured.response.ResponseBody;
 import model.User;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -28,8 +27,8 @@ public class UserTest extends BaseTest {
     @Test
     public void verifyResponseBody() {
         User[] users = UserClient.getResponseBody().as(User[].class);
-        int expectedLength = users.length;
+        int actualLength = users.length;
 
-        Assert.assertEquals(expectedLength, 10);
+        Assert.assertEquals(actualLength, 10);
     }
 }
